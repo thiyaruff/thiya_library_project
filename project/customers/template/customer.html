@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}Search Book{% endblock %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+  .important {
+    color: #9dd3ed;
+    background-color: rgb(12, 71, 148);
+  }
+</style>
+{% endblock %}
+{% block content %}
+<h1 class="important"> Search customer</h1>
+
+<br><br>
+<form action="/customer/" name="add" method="POST">
+  <label style="color:azure;">Enter a customer name:</label>
+  <input type="text" name="name" required><br><br>
+  <input class="btn btn-primary" type="submit" value="find a customer">
+</form><br><br>
+<div class="row row-cols-1 row-cols-md-4 g-4">
+  {%if customer1%}
+  <div class="card h-100">
+    <h5 style="color: #f41d21;" class="card-title"> customer name: {{customer1.name}}</h5>
+    <div class="card-body">Age: {{customer1.age}}</div>
+    <div class="card-body">City: {{customer1.city}}</div>
+    
+  </div>
+  {%endif%}
+</div>
+{% endblock %}

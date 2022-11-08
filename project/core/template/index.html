@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699;
+     }
+
+
+  </style>
+{% endblock %}
+{% block content %}
+    
+  <h1 class="text-center"> welcome to the library</h1>
+
+  <ul class="list-group">
+    <li class="list-group-item"><a href="/add_customer/">Add customer</a></li>
+    <li class="list-group-item", style="background-color: #b6f097;"><a href="/all_customers/">All customers</a></li>
+    <li class="list-group-item", style="background-color: #a9db97;"><a href="/customer/">Search customer</a></li>
+    <li class="list-group-item"><a href="/add_book/">Add book</a></li>
+    <li class="list-group-item", style="background-color: #4c9b30;"><a href="/all_books/">All books</a></li>
+    <li class="list-group-item", style="background-color: #4c9b30;"><a href="/book/">Search book</a></li>
+    <li class="list-group-item"><a href="/new_loan/">New loan</a></li>
+    <li class="list-group-item", style="background-color: #0c4f1f;"><a href="/all_loans/">All loans</a></li>
+    <li class="list-group-item", style="background-color: #0c4f1f;"><a href="/late_loans/">Late loans</a></li>
+  </ul>
+    
+{% endblock %}

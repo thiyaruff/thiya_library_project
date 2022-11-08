@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block title %}add book {% endblock %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+  .important {
+    color: #9dd3ed;
+    background-color: rgb(12, 71, 148);
+  }
+</style>
+{% endblock %}
+{% block content %}
+<h1 class="important">Add Book</h1>
+</div>
+<div style="color:antiquewhite;">
+  <form action="/add_book/" name="add" method="POST">
+    <P>ADD BOOK TO THE LIBRARY</P>
+    <div class="alert alert-success">
+      {{alert}}
+    </div><br><br>
+    <label for="name">book_name:</label>
+    <input type="text" name="name" required><br><br>
+    <label for="Author">Author:</label>
+    <input type="text" name="Author" required><br><br>
+    <label for="Year_published">Year_published:</label>
+    <input type="number" name="Year_published" required><br><br>
+    <label for="Type"> cooshe Type:</label>
+    <select name="Type" required>
+      <option value=1>1=loan to 10 days</option>
+      <option value=2>2=loan to 5 days</option>
+      <option value=3>3= loan to 2 days</option>
+    </select><br><br>
+    <label for="Image">book_image:</label>
+    <input type=file name="Image" required>
+    <!-- <form method=post enctype=multipart/form-data> -->
+
+    <br><br>
+    <input class="btn btn-primary" type="submit" value="add book">
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block title %}new loan {% endblock %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+  .important {
+    color: #9dd3ed;
+    background-color: rgb(12, 71, 148);
+  }
+</style>
+{% endblock %}
+{% block content %}
+<h1 class="important">New loan</h1>
+{% if "success" in alert %}
+<div class="alert alert-success">
+   {{alert}}
+  </div>
+  {% elif "lent" in alert %}
+  <div class="alert alert-danger">
+   {{alert}}
+  </div>
+  {% endif %}
+<form action="{{ url_for('loans.new_loan') }}" name="add" method="POST">
+  <label style="color:azure;">Choose a Customer:</label>
+  <select name="customers">
+      {% for cust in customers %}
+      <option name="CustID" value="{{cust.id}}">ID: {{cust.id}} Name: {{cust.name}}</option>
+      {% endfor %}
+      
+  </select>
+
+  <br><br>
+  <label style="color:azure;">Choose a Book:</label>
+  <select name="books">
+    {% for book in books %}
+      <option name="BookId" value="{{book.id}}">ID: {{book.id}} Name: {{book.name}}</option>
+      {% endfor %}
+  </select>
+  <br><br>
+  <input type="submit" value="Add Loan">
+</form>
+
+
+{% endblock %}

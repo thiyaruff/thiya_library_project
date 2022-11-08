@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block title %}all books {% endblock %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+  .important {
+    color: #9dd3ed;
+    background-color: rgb(12, 71, 148);
+  }
+</style>
+</style>
+{% endblock %}
+{% block content %}
+
+<h1 class="important">All Books</h1>
+<p>{{alert}}</p>
+<div class="row row-cols-1 row-cols-md-4 g-4">
+  {%- for book in books %}
+  <div class="col">
+    <div class="card">
+      <img src="{{ url_for('static', filename =book.Image)}}" card-img-top>
+      <div class="card-body">
+        <h5 class="card-title">{{ book.Author}}</h5>
+        <p class="card-text">{{ book.name}}</p>
+        <a class="btn btn-danger" href="/del_book/{{book.id}}">delet</a>
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+</div>
+{% endblock %}

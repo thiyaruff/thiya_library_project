@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}add Customer {% endblock %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+  .important {
+    color: #9dd3ed;
+    background-color: rgb(12, 71, 148);
+  }
+</style>
+{% endblock %}
+{% block content %}
+<h1 class="important">Add Customer</h1>
+<p style="color:red">{{alert}}</p>
+<div style="color:antiquewhite;">
+<form action="/add_customer/" name="add" method="POST">
+  <P>ADD CUSTOMER TO THE LIBRARY</P>
+  <label for="name">name:</label>
+  <input type="text" name="name" required><br><br>
+  <label for="name">city:</label>
+  <input type="text" name="city" required><br><br>
+  <label for="age">age:</label>
+  <input type="number"name="age" required><br><br>
+  <input class="btn btn-primary" type="submit" value="add customer">
+</form>
+</div>
+{% endblock %}
