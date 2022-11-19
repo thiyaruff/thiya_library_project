@@ -21,3 +21,5 @@ app.register_blueprint(home)
 app.register_blueprint(books)
 app.register_blueprint(customers)
 app.register_blueprint(loans)
+with app.app_context():
+    db.create_all()
